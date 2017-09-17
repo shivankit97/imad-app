@@ -16,8 +16,7 @@ button.onclick=function(){
     request.open('GET','http://shivankitr97.imad.hasura-app.io/counter',true);
     request.send(null);
 };    
-var nameinput=document.getElementById('name');
-var namei =nameinput.value;
+
 var submit=document.getElementById('submit_id');
 submit.onclick=function(){
     var request=new XMLHttpRequest();
@@ -37,6 +36,8 @@ submit.onclick=function(){
             }
         }
     };
+    var nameinput=document.getElementById('name');
+    var namei =nameinput.value;
     request.open('GET','http://shivankitr97.imad.hasura-app.io/submit-name?name='+ namei,true);
     request.send(null);
 };
