@@ -116,7 +116,7 @@ app.get('/:articlename', function(req, res){
     var articlename= req.params.articlename;
   res.send(createtemplate(articles[articlename]));
 });
-var pool = new Pool('config');
+var pool = new pool('config');
 app.get('/test-db', function(req,res){
         pool.query('SELECT * FROM test', function(err,result){
             if(err){
