@@ -11,6 +11,7 @@ var config={
     passwod: process.env.DB_PASSWORD
 };
 
+var pool = new Pool(config);
 var app = express();
 app.use(morgan('combined'));
 
@@ -116,7 +117,9 @@ app.get('/:articlename', function(req, res){
     var articlename= req.params.articlename;
   res.send(createtemplate(articles[articlename]));
 });
-var pool = new Pool(config);
+
+
+
 app.get('/test-db', function(req,res){
         pool.query('SELECT * FROM test', function(err,result){
             if(err){
