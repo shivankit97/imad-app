@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>
+    pokemon game
+    </title>
+   
+    
+    </head>
+    <body>
+    <canvas id="my_canvas" width="1000px" height="600px" style="border:5px solid #000000;">
+        
+        </canvas>
+        
+        <script>
+            var canvas= document.getElementById('my_canvas');
+            var pen=canvas.getContext('2d');
+            var game_over=false;
+            var game_w=1000;
+            var game_h=600;
+            
+            var p1 ={
+                x:20,
+                y:150,
+                w:60,
+                h:50,
+                speed:3
+            }
+            
+             var p2 ={
+                x:80,
+                y:300,
+                w:60,
+                h:50,
+                speed:3
+            }
+            
+            function draw(){
+                pen.clearRect(0,0,game_w,game_h);
+                pen.fillStyle="orange";
+                pen.fillRect(p1.x,p1.y,p1.w,p1.h);
+                pen.fillStyle="yellow";
+                pen.fillRect(p2.x,p2.y,p2.w,p2.h);
+            }
+            
+            function update(){
+                p1.x += p1.speed;
+                  if(p1.x>=game_w-60 || p1.x<=0)
+                    {
+                        p1.speed *=-1;
+                    }
+                p1.y = 150+100*(Math.sin(p1.x*(Math.PI/180)));
+                
+                 p2.x += p2.speed;
+                  if(p2.x>=game_w-60 || p2.x<=0)
+                    {
+                        p2.speed *=-1;
+                    }
+                p2.y = 150+100*(Math.sin(p2.x*(Math.PI/180)));
+            }
+            
+            console.log(Math.sin(30*(Math.PI/180)));
+            
+            function render(){
+              //  console.log("in render!");
+                draw();
+                update();
+                if(game_over==false)
+                     {
+                        window.requestAnimationFrame(render);
+                     }
+            }
+            render();
+            
+        </script>
+    </body>
+</html>
