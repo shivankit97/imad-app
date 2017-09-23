@@ -100,6 +100,14 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/game1', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'biggame.html'));
+});
+
+app.get('/game2', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'biggam2.html'));
+});
+
 var counter=0;
 app.get('/counter',function(req,res){
    counter=counter+1;
